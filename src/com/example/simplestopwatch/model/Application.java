@@ -1,4 +1,4 @@
-package com.example.simplestopwatch;
+package com.example.simplestopwatch.model;
 
 /**
  * The passive (dumb) data model of the stopwatch.
