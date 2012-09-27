@@ -1,4 +1,4 @@
-package com.example.simplestopwatch.view;
+package com.example.simplestopwatch;
 
 import java.util.Timer;
 import java.util.TimerTask;

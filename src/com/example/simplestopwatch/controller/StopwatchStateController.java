@@ -1,7 +1,7 @@
 package com.example.simplestopwatch.controller;
 
+import com.example.simplestopwatch.MainActivity;
 import com.example.simplestopwatch.model.Application;
-import com.example.simplestopwatch.view.MainActivity;
 
 import android.os.Handler;
 
