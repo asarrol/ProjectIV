@@ -73,25 +73,25 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	// forward event listener methods to the current state
 	public void onStartStop(final View view) { state.onStartStop(); }
 	public void onLapReset(final View view)  { state.onLapReset(); }
-	@Override public void onTick()		 { state.onTick(); }
+	@Override public void onTick()           { state.onTick(); }
 
 	// known states
-	private final StopwatchState STOPPED	 = new StoppedState(this);
-	private final StopwatchState RUNNING	 = new RunningState(this);
+	private final StopwatchState STOPPED     = new StoppedState(this);
+	private final StopwatchState RUNNING     = new RunningState(this);
 	private final StopwatchState LAP_RUNNING = new LapRunningState(this);
 	private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
 	// transitions
-	@Override public void toRunningState()	{ setState(RUNNING); }
-	@Override public void toStoppedState()	{ setState(STOPPED); }
+	@Override public void toRunningState()    { setState(RUNNING); }
+	@Override public void toStoppedState()    { setState(STOPPED); }
 	@Override public void toLapRunningState() { setState(LAP_RUNNING); }
 	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
 	// actions
-	@Override public void actionReset()	{ timeModel.resetRuntime(); actionUpdateView(); }
-	@Override public void actionStart()	{ tickModel.start(); }
-	@Override public void actionStop()	 { tickModel.stop(); }
-	@Override public void actionLap()	  { timeModel.setLaptime(); }
-	@Override public void actionInc()	  { timeModel.incRuntime(); actionUpdateView(); }
+	@Override public void actionReset()     { timeModel.resetRuntime(); actionUpdateView(); }
+	@Override public void actionStart()     { tickModel.start(); }
+	@Override public void actionStop()      { tickModel.stop(); }
+	@Override public void actionLap()       { timeModel.setLaptime(); }
+	@Override public void actionInc()       { timeModel.incRuntime(); actionUpdateView(); }
 	@Override public void actionUpdateView() { state.updateView(); }
 }
