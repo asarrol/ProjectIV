@@ -16,7 +16,7 @@ public class TickModel {
 
 	private final TickListener listener;
 
-	private Timer timer;
+	private Timer timer; // TODO use handler only
 
 	private Handler handler = new Handler();
 
