@@ -7,12 +7,19 @@ The original java code can be found [here](https://github.com/concurrency-cs-luc
 
 * Simple dependency injection
 * Event-driven program execution
-* State pattern for handling state dependence in applications
+* Modeling state-dependent behavior with state machine diagrams
+* State pattern for implementing state-dependent behavior
 * Mapping the model-view-adapter architecture to Android
+* Façade pattern for hiding complexity in the model from the adapter
+* Distinguishing among dumb, reactive, and autonomous model components
 * Background timers
-* Dealing with passive and active models
-* Updating the view in the GUI thread
+* Concurrency issues: updating the view in the GUI thread
 
 # Running the Application
 
 * Android: as usual through Eclipse
+
+# TODO
+
+* testing
+
