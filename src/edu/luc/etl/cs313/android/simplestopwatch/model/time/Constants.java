@@ -1,7 +1,7 @@
-package edu.luc.etl.cs313.android.simplestopwatch.model;
+package edu.luc.etl.cs313.android.simplestopwatch.model.time;
 
 /**
- * Constants for the stopwatch.
+ * Constants for the time calculations used by the stopwatch.
  */
 public final class Constants {
 
