@@ -29,7 +29,7 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 		setContentView(R.layout.activity_main);
 		tickModel = new TickModel(this);
 		timeModel = new TimeModel();
-    }
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,27 +63,27 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override public void updateViewRuntime() { updateView(timeModel.getRuntime()); }
 	@Override public void updateViewLaptime() { updateView(timeModel.getLaptime()); }
 
-    /**
-     * The internal state of this adapter component. Required for the State pattern.
-     */
+	/**
+	 * The internal state of this adapter component. Required for the State pattern.
+	 */
 	private StopwatchState state;
 
 	protected void setState(final StopwatchState state) { this.state = state; }
 
 	// forward event listener methods to the current state
 	public void onStartStop(final View view) { state.onStartStop(); }
-    public void onLapReset(final View view)  { state.onLapReset(); }
-    @Override public void onTick()	     { state.onTick(); }
+	public void onLapReset(final View view)  { state.onLapReset(); }
+	@Override public void onTick()		 { state.onTick(); }
 
-    // known states
-    private final StopwatchState STOPPED     = new StoppedState(this);
-    private final StopwatchState RUNNING     = new RunningState(this);
-    private final StopwatchState LAP_RUNNING = new LapRunningState(this);
-    private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
+	// known states
+	private final StopwatchState STOPPED	 = new StoppedState(this);
+	private final StopwatchState RUNNING	 = new RunningState(this);
+	private final StopwatchState LAP_RUNNING = new LapRunningState(this);
+	private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
-    // transitions
-	@Override public void toRunningState()    { setState(RUNNING); }
-	@Override public void toStoppedState()    { setState(STOPPED); }
+	// transitions
+	@Override public void toRunningState()	{ setState(RUNNING); }
+	@Override public void toStoppedState()	{ setState(STOPPED); }
 	@Override public void toLapRunningState() { setState(LAP_RUNNING); }
 	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
@@ -93,5 +93,5 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override public void actionStop()	 { tickModel.stop(); }
 	@Override public void actionLap()	  { timeModel.setLaptime(); }
 	@Override public void actionInc()	  { timeModel.incRuntime(); actionUpdateView(); }
-    @Override public void actionUpdateView() { state.updateView(); }
+	@Override public void actionUpdateView() { state.updateView(); }
 }
