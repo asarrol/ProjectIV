@@ -23,42 +23,42 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	 */
 	private TimeModel timeModel;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        tickModel = new TickModel(this);
-        timeModel = new TimeModel();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		tickModel = new TickModel(this);
+		timeModel = new TimeModel();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
 
-    @Override
-    protected void onStart() {
-    	super.onStart();
-    	tickModel.stop();
-    	toStoppedState();
-    	actionReset();
-    }
+	@Override
+	protected void onStart() {
+		super.onStart();
+		tickModel.stop();
+		toStoppedState();
+		actionReset();
+	}
 
-    // TODO lifecycle methods
+	// TODO lifecycle methods
 
 	/**
 	 * Updates the seconds and minutes in the UI.
 	 * @param time
 	 */
-    public void updateView(final int time) {
-    	final TextView tvS = (TextView) findViewById(R.id.seconds);
-    	final TextView tvM = (TextView) findViewById(R.id.minutes);
-    	final int seconds = time % Constants.SEC_PER_MIN;
-    	final int minutes = time / Constants.SEC_PER_MIN;
-        tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
-        tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
-    }
+	public void updateView(final int time) {
+		final TextView tvS = (TextView) findViewById(R.id.seconds);
+		final TextView tvM = (TextView) findViewById(R.id.minutes);
+		final int seconds = time % Constants.SEC_PER_MIN;
+		final int minutes = time / Constants.SEC_PER_MIN;
+		tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
+		tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
+	}
 
 	@Override public void updateViewRuntime() { updateView(timeModel.getRuntime()); }
 	@Override public void updateViewLaptime() { updateView(timeModel.getLaptime()); }
@@ -71,9 +71,9 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	protected void setState(final StopwatchState state) { this.state = state; }
 
 	// forward event listener methods to the current state
-    public void onStartStop(final View view) { state.onStartStop(); }
+	public void onStartStop(final View view) { state.onStartStop(); }
     public void onLapReset(final View view)  { state.onLapReset(); }
-    @Override public void onTick()           { state.onTick(); }
+    @Override public void onTick()	     { state.onTick(); }
 
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
@@ -88,10 +88,10 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
 	// actions
-	@Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
-	@Override public void actionStart()      { tickModel.start(); }
-	@Override public void actionStop()       { tickModel.stop(); }
-	@Override public void actionLap()        { timeModel.setLaptime(); }
-	@Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
+	@Override public void actionReset()	{ timeModel.resetRuntime(); actionUpdateView(); }
+	@Override public void actionStart()	{ tickModel.start(); }
+	@Override public void actionStop()	 { tickModel.stop(); }
+	@Override public void actionLap()	  { timeModel.setLaptime(); }
+	@Override public void actionInc()	  { timeModel.incRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
 }
