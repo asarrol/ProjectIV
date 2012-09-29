@@ -40,7 +40,6 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		tickModel.stop();
 		toStoppedState();
 		actionReset();
 	}
@@ -88,10 +87,10 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
 	// actions
-	@Override public void actionReset()     { timeModel.resetRuntime(); actionUpdateView(); }
-	@Override public void actionStart()     { tickModel.start(); }
-	@Override public void actionStop()      { tickModel.stop(); }
-	@Override public void actionLap()       { timeModel.setLaptime(); }
-	@Override public void actionInc()       { timeModel.incRuntime(); actionUpdateView(); }
+	@Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
+	@Override public void actionStart()      { tickModel.start(); }
+	@Override public void actionStop()       { tickModel.stop(); }
+	@Override public void actionLap()        { timeModel.setLaptime(); }
+	@Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
 	@Override public void actionUpdateView() { state.updateView(); }
 }
