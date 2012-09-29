@@ -1,7 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
 /**
- * Event labels for the stopwatch.
+ * Constants for the stopwatch.
  */
 public final class Constants {
 

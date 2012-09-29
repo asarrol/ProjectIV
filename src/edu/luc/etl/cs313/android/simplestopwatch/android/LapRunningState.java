@@ -17,12 +17,12 @@ public class LapRunningState implements StopwatchState {
 	@Override
 	public void onLapReset() {
 		adapter.toRunningState();
-		adapter.updateViewRuntime();
+		adapter.actionUpdateView();
 	}
 
 	@Override
 	public void onTick() {
-		adapter.actionIncLap();
+		adapter.actionInc();
 		adapter.toLapRunningState();
 	}
 

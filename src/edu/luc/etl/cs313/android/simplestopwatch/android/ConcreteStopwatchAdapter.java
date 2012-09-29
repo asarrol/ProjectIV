@@ -40,15 +40,12 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
     @Override
     protected void onStart() {
     	super.onStart();
+    	tickModel.stop();
     	toStoppedState();
     	actionReset();
     }
 
-    @Override
-    protected void onResume() {
-    	super.onResume();
-    	updateView();
-    }
+    // TODO lifecycle methods
 
 	/**
 	 * Updates the seconds and minutes in the UI.
@@ -77,7 +74,6 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
     public void onStartStop(final View view) { state.onStartStop(); }
     public void onLapReset(final View view)  { state.onLapReset(); }
     @Override public void onTick()           { state.onTick(); }
-    @Override public void updateView()       { state.updateView(); }
 
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
@@ -92,10 +88,10 @@ public class ConcreteStopwatchAdapter extends Activity implements TickListener, 
 	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
 	// actions
-	@Override public void actionReset()  { timeModel.resetRuntime(); updateView(); }
-	@Override public void actionStart()  { tickModel.start(); }
-	@Override public void actionStop()   { tickModel.stop(); }
-	@Override public void actionLap()    { timeModel.setLaptime(); }
-	@Override public void actionInc()    { timeModel.incRuntime(); updateView(); }
-	@Override public void actionIncLap() { timeModel.incRuntime(); updateView(); }
+	@Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
+	@Override public void actionStart()      { tickModel.start(); }
+	@Override public void actionStop()       { tickModel.stop(); }
+	@Override public void actionLap()        { timeModel.setLaptime(); }
+	@Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
+    @Override public void actionUpdateView() { state.updateView(); }
 }

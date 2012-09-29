@@ -17,7 +17,7 @@ public class LapStoppedState implements StopwatchState {
 	@Override
 	public void onLapReset() {
 		adapter.toStoppedState();
-		adapter.updateView();
+		adapter.actionUpdateView();
 	}
 
 	@Override
