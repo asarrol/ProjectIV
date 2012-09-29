@@ -21,5 +21,6 @@ The original java code can be found [here](https://github.com/concurrency-cs-luc
 
 # TODO
 
+* architectural diagram
 * testing
 
