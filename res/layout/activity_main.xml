@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp" >
-    
+
     <!-- Why can't I define textSize and textStyle
     	 in the timer container and have it inherited
     	 by the TextViews? -->
@@ -20,7 +20,7 @@
 	        android:text="@string/minutes"
 	        android:textSize="80sp"
 	        android:textStyle="bold" />
-	    
+
 	    <TextView
 	        android:id="@+id/colon"
 	        android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
 	        android:text="@string/colon"
 	        android:textSize="80sp"
 	        android:textStyle="bold" />
-	    
+
 	    <TextView
 	        android:id="@+id/seconds"
 	        android:layout_height="wrap_content"
@@ -39,28 +39,28 @@
 	        android:textSize="80sp"
 	        android:textStyle="bold" />
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/timer"
         android:layout_centerHorizontal="true">
-    
+
 	    <Button
 	        android:id="@+id/startStop"
 	     	android:layout_height="wrap_content"
 	     	android:layout_width="wrap_content"
 	     	android:text="@string/startStop"
-	     	android:onClick="startStop" />
-	    
+	     	android:onClick="onStartStop" />
+
 	    <Button
 	        android:id="@+id/resetLap"
 	     	android:layout_height="wrap_content"
 	     	android:layout_width="wrap_content"
 	     	android:layout_toRightOf="@id/startStop"
 	     	android:text="@string/resetLap"
-	     	android:onClick="resetLap" />
+	     	android:onClick="onLapReset" />
     </RelativeLayout>
 
 </RelativeLayout>
