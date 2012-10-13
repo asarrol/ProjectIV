@@ -3,8 +3,6 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.os.Handler;
-
 /**
  * An implementation of the internal clock.
  *
@@ -16,14 +14,21 @@ public class DefaultClockModel implements ClockModel {
 
 	private Timer timer; // TODO use handler only
 
-	private Handler handler = new Handler();
+	private RunnableScheduler scheduler;
 
 	private OnTickListener listener;
 
+	@Override
+	public void setRunnableScheduler(final RunnableScheduler scheduler) {
+		this.scheduler = scheduler;
+	}
+
+	@Override
 	public void setOnTickListener(final OnTickListener listener) {
 		this.listener = listener;
 	}
 
+	@Override
 	public void start() {
 		timer = new Timer();
 
@@ -31,7 +36,7 @@ public class DefaultClockModel implements ClockModel {
 		timer.schedule(new TimerTask() {
 			@Override public void run() {
 				// schedule the onTick event on the UI thread
-				handler.post(new Runnable() {
+				scheduler.post(new Runnable() {
 					@Override public void run() {
 						// fire event
 						listener.onTick();
@@ -41,6 +46,7 @@ public class DefaultClockModel implements ClockModel {
 		}, /*initial delay*/ 1000, /*periodic delay*/ 1000);
 	}
 
+	@Override
 	public void stop() {
 		timer.cancel();
 	}

@@ -29,6 +29,11 @@ public class StopwatchActivityTest extends ActivityInstrumentationTestCase2<Stop
 		assertNotNull("activity should be launched successfully", getActivity());
 	}
 
+	/**
+	 * Verifies the following scenario: time is 0, press start, wait 5+ seconds, expect time 5.
+	 *
+	 * @throws Throwable
+	 */
 	public void testActivityScenarioRun() throws Throwable {
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(0, getDisplayedValue());
@@ -41,6 +46,13 @@ public class StopwatchActivityTest extends ActivityInstrumentationTestCase2<Stop
 		}});
 	}
 
+	/**
+	 * Verifies the following scenario: time is 0, press start, wait 5+ seconds,
+	 * expect time 5, press lap, wait 4 seconds, expect time 5, press start,
+	 * expect time 5, press lap, expect time 9, press lap, expect time 0.
+	 *
+	 * @throws Throwable
+	 */
 	public void testActivityScenarioRunLapReset() throws Throwable {
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(0, getDisplayedValue());
@@ -66,7 +78,6 @@ public class StopwatchActivityTest extends ActivityInstrumentationTestCase2<Stop
 		}});
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(0, getDisplayedValue());
-			assertTrue(getResetLapButton().performClick());
 		}});
 	}
 

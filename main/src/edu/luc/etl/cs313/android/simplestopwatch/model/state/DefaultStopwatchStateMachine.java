@@ -1,9 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
-import android.app.Activity;
 import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
-import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
 /**
@@ -11,7 +9,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
  *
  * @author laufer
  */
-public class DefaultStopwatchStateMachine extends Activity implements OnTickListener, StopwatchStateMachine {
+public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
 	public DefaultStopwatchStateMachine(final TimeModel timeModel, final ClockModel clockModel) {
 		this.timeModel = timeModel;

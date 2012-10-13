@@ -6,7 +6,8 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
  * @author laufer
  */
 public interface ClockModel {
+	void setRunnableScheduler(RunnableScheduler scheduler);
+	void setOnTickListener(OnTickListener listener);
 	void start();
 	void stop();
-	void setOnTickListener(OnTickListener listener);
 }
