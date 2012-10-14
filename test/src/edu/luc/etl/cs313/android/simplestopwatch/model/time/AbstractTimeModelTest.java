@@ -1,8 +1,8 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.time;
 
-import static edu.luc.etl.cs313.android.simplestopwatch.model.time.Constants.SEC_PER_MIN;
-import static edu.luc.etl.cs313.android.simplestopwatch.model.time.Constants.SEC_PER_TICK;
-import static edu.luc.etl.cs313.android.simplestopwatch.model.time.Constants.SEC_PER_HOUR;
+import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_HOUR;
+import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
+import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_TICK;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

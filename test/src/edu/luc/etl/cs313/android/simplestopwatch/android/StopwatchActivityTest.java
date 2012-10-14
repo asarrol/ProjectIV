@@ -4,7 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
-import static edu.luc.etl.cs313.android.simplestopwatch.model.time.Constants.SEC_PER_MIN;
+import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
 
 /**
  * GUI-level test of several essential click-counter scenarios.

@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFacade;
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
-import edu.luc.etl.cs313.android.simplestopwatch.model.time.Constants;
 
 /**
  * A thin adapter component for the stopwatch.

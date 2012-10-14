@@ -1,4 +1,4 @@
-package edu.luc.etl.cs313.android.simplestopwatch.android;
+package edu.luc.etl.cs313.android.simplestopwatch.common;
 
 /**
  * A source of UI update events for the stopwatch.

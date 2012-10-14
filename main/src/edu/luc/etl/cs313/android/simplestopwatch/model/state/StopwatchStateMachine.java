@@ -1,7 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
-import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchUIListener;
-import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchUIUpdateAware;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateAware;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
 
 /**

@@ -1,6 +1,6 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
-import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchUIUpdateListener;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.DefaultClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.HandlerAsRunnableScheduler;
