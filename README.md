@@ -29,10 +29,8 @@ current workspace.
 
 * Test of various components with JUnit: in the test project, right-click on `src/edu...model` > Run As... > JUnit Test
   (if prompted for configuration-specific options, choose the Android JUnit test runner)
-* Test of the activity with Robolectric: in the robolectric project, right-click on `robolectric.launch` > Run As... > `robolectric`
 * Test of the activity in the Android emulator: right-click on the test project root > Run As... > Android JUnit Test
 
 # TODO
 
-* architectural diagram
 * Robolectric testing
