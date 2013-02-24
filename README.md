@@ -8,13 +8,13 @@ Android application.  The original java code can be found
 
 * Simple dependency injection
 * Event-driven program execution
-* Modeling state-dependent behavior with state machine diagrams (see also [here](doc))
+* Modeling state-dependent behavior with state machine diagrams (see also [here](main/doc))
 * Distinguishing between view states and model states
 * Implementing state-dependent behavior using the State pattern
 * Mapping the model-view-adapter architecture to Android
 * Fa&ccedil;ade pattern for hiding complexity in the model from the adapter
 * Distinguishing among dumb, reactive, and autonomous model components
-* Package-level architecture and dependencies (see also [here](doc))
+* Package-level architecture and dependencies (see also [here](main/doc))
 * Background timers
 * Concurrency issues: updating the view in the GUI thread
 
