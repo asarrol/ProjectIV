@@ -7,7 +7,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.R;
 import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
 
 /**
- * GUI-level test of several essential click-counter scenarios.
+ * GUI-level (functional) test of several essential click-counter scenarios.
  *
  * @author laufer
  * @see http://developer.android.com/tools/testing/activity_testing.html
