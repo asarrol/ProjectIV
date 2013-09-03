@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  * Test case superclass for the autonomous clock model abstraction.
- * Tests the pseudo-real-time behavior of the clock.
+ * Unit-tests the pseudo-real-time behavior of the clock.
  *
  * @author laufer
  */
