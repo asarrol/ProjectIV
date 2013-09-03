@@ -16,7 +16,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.clock.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
 /**
- * Testcase superclass for the stopwatch state machine model. Tests the state
+ * Testcase superclass for the stopwatch state machine model. Unit-tests the state
  * machine in fast-forward mode by directly triggering successive tick events
  * without the presence of a pseudo-real-time clock. Uses a single unified mock
  * object for all dependencies of the state machine model.
