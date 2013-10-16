@@ -1,3 +1,5 @@
+OUTDATED - SUBJECT TO CHANGE!
+
 # Background
 
 The goal of this project is to convert a simple Java stopwatch to an
