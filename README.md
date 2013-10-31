@@ -8,7 +8,7 @@ Android application.  The original java code can be found
 
 * Simple dependency injection
 * Event-driven program execution
-* Modeling state-dependent behavior with state machine diagrams (see also [here](main/doc))
+* Modeling state-dependent behavior with state machine diagrams (see also [here](doc))
 * Distinguishing between view states and model states
 * Implementing state-dependent behavior using the State pattern
 * Mapping the model-view-adapter architecture to Android
@@ -38,7 +38,7 @@ In Android Studio: `Run > Run Stopwatch`
 ## Android instrumentation tests (in-emulator/device system tests)
 
 In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
-then choose `Run StopwatchActivity`
+then choose `Run StopwatchActivityTest`
 
 # TODO
 
