@@ -1,5 +1,3 @@
-OUTDATED - SUBJECT TO CHANGE!
-
 # Background
 
 The goal of this project is to convert a simple Java stopwatch to an
@@ -20,19 +18,27 @@ Android application.  The original java code can be found
 * Background timers
 * Concurrency issues: updating the view in the GUI thread
 
+# Setting up the Environment
+
+Check out the project using Android Studio. This creates the `local.properties` file
+with the required line
+
+    sdk.dir=<root folder of Android Studio's Android SDK installation>
+
 # Running the Application
 
-* Android: as usual through Eclipse
+In Android Studio: `Run > Run Stopwatch`
 
 # Running the Tests
 
-To run the tests through Eclipse, make sure you have both this test
-project and the subject-under-test (original project) open in the
-current workspace.
+## Unit tests including out-of-emulator system tests using Robolectric
 
-* Test of various components with JUnit: in the test project, right-click on `src/edu...model` > Run As... > JUnit Test
-  (if prompted for configuration-specific options, choose the Android JUnit test runner)
-* Test of the activity in the Android emulator: right-click on the test project root > Run As... > Android JUnit Test
+    $ gradle --info unitTest
+
+## Android instrumentation tests (in-emulator/device system tests)
+
+In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
+then choose `Run StopwatchActivity`
 
 # TODO
 
