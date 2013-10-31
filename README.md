@@ -14,7 +14,7 @@ Android application.  The original java code can be found
 * Mapping the model-view-adapter architecture to Android
 * Fa&ccedil;ade pattern for hiding complexity in the model from the adapter
 * Distinguishing among dumb, reactive, and autonomous model components
-* Package-level architecture and dependencies (see also [here](doc))
+* Package-level architecture and dependencies (see also [here](src/default/doc))
 * Background timers
 * Concurrency issues: updating the view in the GUI thread
 
