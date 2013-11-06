@@ -12,7 +12,7 @@ Android application.  The original java code can be found
 * Distinguishing between view states and model states
 * Implementing state-dependent behavior using the State pattern
 * Mapping the model-view-adapter architecture to Android
-* Fa&ccedil;ade pattern for hiding complexity in the model from the adapter
+* Façade pattern for hiding complexity in the model from the adapter
 * Distinguishing among dumb, reactive, and autonomous model components
 * Package-level architecture and dependencies (see also [here](/loyolachicagocs_comp313/stopwatch-android-java/src/default/doc))
 * Background timers
@@ -42,4 +42,4 @@ then choose `Run StopwatchActivityTest`
 
 # TODO
 
-* Robolectric testing
+* Fix Robolectric testing
