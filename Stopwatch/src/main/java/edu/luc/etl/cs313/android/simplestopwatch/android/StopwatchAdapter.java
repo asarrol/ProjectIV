@@ -2,13 +2,11 @@ package edu.luc.etl.cs313.android.simplestopwatch.android;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
-import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFacade;
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
@@ -40,15 +38,6 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 		this.setModel(new ConcreteStopwatchModelFacade());
 		// inject dependency on this into model to register for UI updates
 		model.setUIUpdateListener(this);
-        // inject dependency on UI thread scheduler into model
-        model.setRunnableScheduler(new RunnableScheduler() {
-            @Override
-            public boolean post(final Runnable r) {
-                Log.i(TAG, "scheduling a runnable");
-                runOnUiThread(r);
-                return true;
-            }
-        });
 	}
 
 	@Override
@@ -70,12 +59,18 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 	 * @param time
 	 */
 	public void updateTime(final int time) {
-		final TextView tvS = (TextView) findViewById(R.id.seconds);
-		final TextView tvM = (TextView) findViewById(R.id.minutes);
-		final int seconds = time % Constants.SEC_PER_MIN;
-		final int minutes = time / Constants.SEC_PER_MIN;
-		tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
-		tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
+        // UI adapter responsibility to schedule incoming events on UI thread
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                final TextView tvS = (TextView) findViewById(R.id.seconds);
+                final TextView tvM = (TextView) findViewById(R.id.minutes);
+                final int seconds = time % Constants.SEC_PER_MIN;
+                final int minutes = time / Constants.SEC_PER_MIN;
+                tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
+                tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
+            }
+        });
 	}
 
 	/**
@@ -83,11 +78,21 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 	 * @param stateId
 	 */
 	public void updateState(final int stateId) {
-		final TextView stateName = (TextView) findViewById(R.id.stateName);
-		stateName.setText(getString(stateId));
+        // UI adapter responsibility to schedule incoming events on UI thread
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                final TextView stateName = (TextView) findViewById(R.id.stateName);
+                stateName.setText(getString(stateId));
+            }
+        });
 	}
 
 	// forward event listener methods to the current state
-	public void onStartStop(final View view) { model.onStartStop(); }
-	public void onLapReset(final View view)  { model.onLapReset(); }
+	public void onStartStop(final View view) {
+        model.onStartStop();
+    }
+	public void onLapReset(final View view)  {
+        model.onLapReset();
+    }
 }

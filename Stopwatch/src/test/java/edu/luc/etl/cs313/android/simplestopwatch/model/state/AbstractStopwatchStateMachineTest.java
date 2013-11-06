@@ -12,7 +12,6 @@ import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
-import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
 /**
@@ -169,11 +168,6 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 	@Override
 	public void updateState(final int stateId) {
 		this.stateId = stateId;
-	}
-
-	@Override
-	public void setRunnableScheduler(RunnableScheduler scheduler) {
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

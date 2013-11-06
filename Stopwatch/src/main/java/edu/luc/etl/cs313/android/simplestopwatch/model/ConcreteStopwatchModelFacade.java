@@ -1,6 +1,5 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
-import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.DefaultClockModel;
@@ -38,11 +37,6 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 	public void setUIUpdateListener(final StopwatchUIUpdateListener listener) {
 		stateMachine.setUIUpdateListener(listener);
 	}
-
-    @Override
-    public void setRunnableScheduler(final RunnableScheduler scheduler) {
-        clockModel.setRunnableScheduler(scheduler);
-    }
 
     @Override
 	public void onStartStop() {

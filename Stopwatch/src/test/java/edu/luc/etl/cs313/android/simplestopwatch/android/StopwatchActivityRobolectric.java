@@ -15,7 +15,6 @@ import android.util.Log;
  * @author laufer
  * @see http://pivotal.github.com/robolectric
  */
-@Ignore
 @RunWith(RobolectricTestRunner.class)
 public class StopwatchActivityRobolectric extends AbstractStopwatchActivityTest {
 
