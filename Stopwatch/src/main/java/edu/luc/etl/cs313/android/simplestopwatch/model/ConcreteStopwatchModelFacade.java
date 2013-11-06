@@ -1,9 +1,9 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
+import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.DefaultClockModel;
-import edu.luc.etl.cs313.android.simplestopwatch.model.clock.HandlerAsRunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.model.state.DefaultStopwatchStateMachine;
 import edu.luc.etl.cs313.android.simplestopwatch.model.state.StopwatchStateMachine;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.DefaultTimeModel;
@@ -18,7 +18,7 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 
 	private StopwatchStateMachine stateMachine;
 
-	private ClockModel clockModel;
+    private ClockModel clockModel;
 
 	private TimeModel timeModel;
 
@@ -31,8 +31,6 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 
 	@Override
 	public void onStart() {
-		// use an Android handler to schedule clock ticks on the UI thread
-		clockModel.setRunnableScheduler(new HandlerAsRunnableScheduler());
 		stateMachine.actionInit();
 	}
 
@@ -41,7 +39,12 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 		stateMachine.setUIUpdateListener(listener);
 	}
 
-	@Override
+    @Override
+    public void setRunnableScheduler(final RunnableScheduler scheduler) {
+        clockModel.setRunnableScheduler(scheduler);
+    }
+
+    @Override
 	public void onStartStop() {
 		stateMachine.onStartStop();
 	}

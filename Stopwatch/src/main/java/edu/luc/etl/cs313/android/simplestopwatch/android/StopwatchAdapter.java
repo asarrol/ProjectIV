@@ -2,11 +2,13 @@ package edu.luc.etl.cs313.android.simplestopwatch.android;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
+import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFacade;
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
@@ -18,7 +20,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
  */
 public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListener {
 
-	// TODO logging
+    private static String TAG = "stopwatch-android-activity";
 
 	/**
 	 * The state-based dynamic model.
@@ -38,6 +40,15 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 		this.setModel(new ConcreteStopwatchModelFacade());
 		// inject dependency on this into model to register for UI updates
 		model.setUIUpdateListener(this);
+        // inject dependency on UI thread scheduler into model
+        model.setRunnableScheduler(new RunnableScheduler() {
+            @Override
+            public boolean post(final Runnable r) {
+                Log.i(TAG, "scheduling a runnable");
+                runOnUiThread(r);
+                return true;
+            }
+        });
 	}
 
 	@Override

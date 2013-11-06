@@ -1,7 +1,8 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
+import edu.luc.etl.cs313.android.simplestopwatch.common.NeedsRunnableScheduler;
+import edu.luc.etl.cs313.android.simplestopwatch.common.NeedsStopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
-import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateAware;
 
 
 /**
@@ -10,6 +11,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateAware;
  *
  * @author laufer
  */
-public interface StopwatchModelFacade extends StopwatchUIListener, StopwatchUIUpdateAware {
-	void onStart();
+public interface StopwatchModelFacade
+        extends StopwatchUIListener, NeedsStopwatchUIUpdateListener, NeedsRunnableScheduler {
+    void onStart();
 }

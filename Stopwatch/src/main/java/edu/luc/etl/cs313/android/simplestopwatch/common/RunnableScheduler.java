@@ -1,4 +1,4 @@
-package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
+package edu.luc.etl.cs313.android.simplestopwatch.common;
 
 /**
  * An after-the-fact abstraction of {@link android.os.Handler}.

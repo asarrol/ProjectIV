@@ -1,5 +1,6 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
 
+import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

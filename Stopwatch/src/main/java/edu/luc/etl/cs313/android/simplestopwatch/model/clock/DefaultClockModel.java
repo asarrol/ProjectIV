@@ -1,5 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
 
+import edu.luc.etl.cs313.android.simplestopwatch.common.RunnableScheduler;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,7 +14,7 @@ public class DefaultClockModel implements ClockModel {
 
 	// TODO make accurate by keeping track of partial seconds when canceled etc.
 
-	private Timer timer; // TODO use handler only
+	private Timer timer;
 
 	private RunnableScheduler scheduler;
 
@@ -32,7 +34,7 @@ public class DefaultClockModel implements ClockModel {
 	public void start() {
 		timer = new Timer();
 
-		// The tickModel runs performAction() every 1000 milliseconds
+		// The clock model runs onTick every 1000 milliseconds
 		timer.schedule(new TimerTask() {
 			@Override public void run() {
 				// schedule the onTick event on the UI thread

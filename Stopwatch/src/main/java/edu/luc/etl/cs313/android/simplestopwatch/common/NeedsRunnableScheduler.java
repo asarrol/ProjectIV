@@ -6,6 +6,6 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  *
  * @author laufer
  */
-public interface StopwatchUIUpdateAware {
-	void setUIUpdateListener(StopwatchUIUpdateListener listener);
+public interface NeedsRunnableScheduler {
+	void setRunnableScheduler(RunnableScheduler scheduler);
 }
