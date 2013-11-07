@@ -88,10 +88,11 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
         });
 	}
 
-	// forward event listener methods to the current state
+	// forward event listener methods to the model
 	public void onStartStop(final View view) {
         model.onStartStop();
     }
+
 	public void onLapReset(final View view)  {
         model.onLapReset();
     }
