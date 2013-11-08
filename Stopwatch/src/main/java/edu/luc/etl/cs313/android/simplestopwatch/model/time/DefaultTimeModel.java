@@ -15,18 +15,22 @@ public class DefaultTimeModel implements TimeModel {
 		runningTime = 0;
 	}
 
+    @Override
 	public void incRuntime() {
 		runningTime = (runningTime + SEC_PER_TICK) % SEC_PER_HOUR;
 	}
 
+    @Override
 	public int getRuntime() {
 		return runningTime;
 	}
 
+    @Override
 	public void setLaptime() {
 		lapTime = runningTime;
 	}
 
+    @Override
 	public int getLaptime() {
 		return lapTime;
 	}
