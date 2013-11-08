@@ -11,6 +11,7 @@ public class DefaultTimeModel implements TimeModel {
 
 	private int lapTime = -1;
 
+    @Override
 	public void resetRuntime() {
 		runningTime = 0;
 	}
