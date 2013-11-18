@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-import android.util.Log;
+import java.lang.Override;
 
 /**
  * Concrete Robolectric test subclass.
@@ -24,12 +24,17 @@ public class StopwatchActivityRobolectric extends AbstractStopwatchActivityTest 
 
 	@Before
 	public void setUp() {
-		activity = Robolectric.buildActivity(StopwatchAdapter.class).create().start().get();
-		Log.d(TAG, "setting up test...");
+		activity = Robolectric.buildActivity(StopwatchAdapter.class).create().start().visible().get();
 	}
 
 	@Override
 	protected StopwatchAdapter getActivity() {
 		return activity;
 	}
+
+    @Override
+    protected void runUiThreadTasks() {
+        // Robolectric requires us to run the scheduled tasks explicitly!
+        Robolectric.runUiThreadTasks();
+    }
 }

@@ -26,10 +26,22 @@ public abstract class AbstractStopwatchActivityTest {
 	/**
 	 * Verifies that the activity under test can be launched.
 	 */
-    @Test
+//    @Test
 	public void testActivityCheckTestCaseSetUpProperly() {
 		assertNotNull("activity should be launched successfully", getActivity());
 	}
+
+    /**
+     * Verifies the following scenario: time is 0.
+     *
+     * @throws Throwable
+     */
+    @Test
+    public void testActivityScenarioInit() throws Throwable {
+        getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+            assertEquals(0, getDisplayedValue());
+        }});
+    }
 
 	/**
 	 * Verifies the following scenario: time is 0, press start, wait 5+ seconds, expect time 5.
@@ -43,6 +55,7 @@ public abstract class AbstractStopwatchActivityTest {
 			assertTrue(getStartStopButton().performClick());
 		}});
 		Thread.sleep(5500); // <-- do not run this in the UI thread!
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
@@ -63,23 +76,28 @@ public abstract class AbstractStopwatchActivityTest {
 			assertTrue(getStartStopButton().performClick());
 		}});
 		Thread.sleep(5500); // <-- do not run this in the UI thread!
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
 		}});
 		Thread.sleep(4000); // <-- do not run this in the UI thread!
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
 		}});
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
 		}});
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(9, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
 		}});
+        runUiThreadTasks();
 		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
 			assertEquals(0, getDisplayedValue());
 		}});
@@ -106,4 +124,10 @@ public abstract class AbstractStopwatchActivityTest {
 	protected Button getResetLapButton() {
 		return (Button) getActivity().findViewById(R.id.resetLap);
 	}
+
+    /**
+     * Explicitly runs tasks scheduled to run on the UI thread in case this is required
+     * by the testing framework, e.g., Robolectric.
+     */
+    protected void runUiThreadTasks() { }
 }
