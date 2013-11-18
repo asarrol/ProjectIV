@@ -39,7 +39,3 @@ In Android Studio: `Run > Run Stopwatch`
 
 In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
 then choose `Run StopwatchActivityTest`
-
-# TODO
-
-* Fix Robolectric testing
