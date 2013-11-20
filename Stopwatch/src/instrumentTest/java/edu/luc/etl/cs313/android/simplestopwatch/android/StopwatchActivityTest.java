@@ -2,6 +2,8 @@ package edu.luc.etl.cs313.android.simplestopwatch.android;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import edu.luc.etl.cs313.android.simplestopwatch.test.android.AbstractStopwatchActivityTest;
+
 
 /**
  * Concrete Android test subclass. Has to inherit from framework class

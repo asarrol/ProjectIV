@@ -1,15 +1,15 @@
-package edu.luc.etl.cs313.android.simplestopwatch.android;
+package edu.luc.etl.cs313.android.simplestopwatch.test.android;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import android.widget.Button;
 import android.widget.TextView;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
 
 import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
 
@@ -18,15 +18,15 @@ import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER
  *
  * @author laufer
  *
- * TODO figure out how to move this from main to test in Gradle
+ * TODO move this and the other tests to src/test once Android Studio supports
+ * non-instrumentation unit tests properly.
  */
-@Ignore
 public abstract class AbstractStopwatchActivityTest {
 
 	/**
 	 * Verifies that the activity under test can be launched.
 	 */
-//    @Test
+    @Test
 	public void testActivityCheckTestCaseSetUpProperly() {
 		assertNotNull("activity should be launched successfully", getActivity());
 	}

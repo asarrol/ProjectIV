@@ -1,4 +1,4 @@
-package edu.luc.etl.cs313.android.simplestopwatch.model.time;
+package edu.luc.etl.cs313.android.simplestopwatch.test.model.time;
 
 import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_HOUR;
 import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER_MIN;
@@ -7,6 +7,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
 /**
  * Testcase superclass for the time model abstraction.

@@ -1,10 +1,13 @@
-package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
+package edu.luc.etl.cs313.android.simplestopwatch.test.model.clock;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
+
+import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
+import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
 
 
 /**
