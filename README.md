@@ -35,7 +35,7 @@ In Android Studio: `Run > Run Stopwatch`
 
     $ gradle --info unitTest
 
-You can view the resulting test reports in HTML by pointing your browser to
+You can view the resulting test reports in HTML by opening this file in your browser:
 
     Stopwatch/build/reports/tests/index.html
 
