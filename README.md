@@ -35,6 +35,10 @@ In Android Studio: `Run > Run Stopwatch`
 
     $ gradle --info unitTest
 
+You can view the resulting test reports in HTML by pointing your browser to
+
+    Stopwatch/build/reports/tests/index.html
+
 ## Android instrumentation tests (in-emulator/device system tests)
 
 In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
