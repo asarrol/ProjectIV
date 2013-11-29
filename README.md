@@ -86,3 +86,5 @@ then choose `Run StopwatchActivityTest`
 * add Gradle code coverage plugin
 * add Gradle dependency/stability metrics plugin
 * consider other useful Gradle code quality plugins (checkstyle etc.)
+* review wrt DIP following
+  [this post](http://lostechies.com/derickbailey/2011/09/22/dependency-injection-is-not-the-same-as-the-dependency-inversion-principle/)
