@@ -79,6 +79,10 @@ You can view the resulting test reports in HTML by opening this file in your bro
 In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
 then choose `Run StopwatchActivityTest`
 
+You can also use Gradle:
+
+    $ gradle connectedAndroidTest
+
 ## TODO
 
 * add external links to learning outcomes
