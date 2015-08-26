@@ -38,9 +38,11 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 	}
 
 	// forward event uiUpdateListener methods to the current state
-	@Override public void onStartStop() { state.onStartStop(); }
-	@Override public void onLapReset()  { state.onLapReset(); }
-	@Override public void onTick()      { state.onTick(); }
+	// these must be synchronized because events can come from the
+	// UI thread or the timer thread
+	@Override public synchronized void onStartStop() { state.onStartStop(); }
+	@Override public synchronized void onLapReset()  { state.onLapReset(); }
+	@Override public synchronized void onTick()      { state.onTick(); }
 
 	@Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
 	@Override public void updateUILaptime() { uiUpdateListener.updateTime(timeModel.getLaptime()); }
