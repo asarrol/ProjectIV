@@ -1,1 +1,1 @@
-include ':Stopwatch'
+include ':app'
