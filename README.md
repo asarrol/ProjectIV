@@ -62,26 +62,37 @@ with the required line
 
 # Running the Application
 
-In Android Studio: `Run > Run Stopwatch`
+In Android Studio: `Run > Run app`
 
 # Running the Tests
 
 ## Unit tests including out-of-emulator system tests using Robolectric
 
-    $ gradle --info unitTest
+In Android Studio:
 
-You can view the resulting test reports in HTML by opening this file in your browser:
-
-    Stopwatch/build/reports/tests/index.html
-
-## Android instrumentation tests (in-emulator/device system tests)
-
-In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
-then choose `Run StopwatchActivityTest`
+* `View > Tool Windows > Build Variants`
+* `Test Artifact: Unit Tests`
+* right-click on `app/java/edu.luc.etl.cs313 (test)`, then choose `Run Tests in edu.luc.etl.cs313`
 
 You can also use Gradle:
 
-    $ gradle connectedAndroidTest
+    $ ./gradlew testDebug
+
+You can view the resulting test reports in HTML by opening this file in your browser:
+
+    app/build/reports/tests/debug/index.html
+
+## Android instrumentation tests (in-emulator/device system tests)
+
+In Android Studio:
+
+* `View > Tool Windows > Build Variants`
+* `Test Artifact: Android Instrumentation Tests`
+* right-click on `app/java/edu...stopwatch (androidTest)`, then choose `Run Tests in edu...`
+
+You can also use Gradle:
+
+    $ ./gradlew connectedDebugAndroidTest
 
 ## TODO
 
@@ -93,3 +104,4 @@ You can also use Gradle:
 * add Gradle code coverage plugin
 * add Gradle dependency/stability metrics plugin
 * consider other useful Gradle code quality plugins (checkstyle etc.)
+* convert these items to GitHub issues
