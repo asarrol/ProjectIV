@@ -93,15 +93,3 @@ In Android Studio:
 You can also use Gradle:
 
     $ ./gradlew connectedDebugAndroidTest
-
-## TODO
-
-* add external links to learning outcomes
-* add lifecycle methods, esp. save/restore app state
-* add Mockito
-* review wrt DIP following
-  [this post](http://lostechies.com/derickbailey/2011/09/22/dependency-injection-is-not-the-same-as-the-dependency-inversion-principle/)
-* add Gradle code coverage plugin
-* add Gradle dependency/stability metrics plugin
-* consider other useful Gradle code quality plugins (checkstyle etc.)
-* convert these items to GitHub issues
