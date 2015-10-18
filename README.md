@@ -72,7 +72,7 @@ In Android Studio:
 
 * `View > Tool Windows > Build Variants`
 * `Test Artifact: Unit Tests`
-* right-click on `app/java/edu.luc.etl.cs313 (test)`, then choose `Run Tests in edu.luc.etl.cs313`
+* right-click on `app/java/edu.luc.etl.cs313... (test)`, then choose `Run Tests in edu.luc.etl.cs313...`
 
 You can also use Gradle:
 
@@ -88,7 +88,7 @@ In Android Studio:
 
 * `View > Tool Windows > Build Variants`
 * `Test Artifact: Android Instrumentation Tests`
-* right-click on `app/java/edu...stopwatch (androidTest)`, then choose `Run Tests in edu...`
+* right-click on `app/java/edu...simplestopwatch (androidTest)`, then choose `Run Tests in edu...`
 
 You can also use Gradle:
 
