@@ -62,34 +62,34 @@ with the required line
 
 # Running the Application
 
-In Android Studio: `Run > Run Stopwatch`
+In Android Studio: `Run > Run app`
 
 # Running the Tests
 
 ## Unit tests including out-of-emulator system tests using Robolectric
 
-    $ gradle --info unitTest
+In Android Studio:
 
-You can view the resulting test reports in HTML by opening this file in your browser:
-
-    Stopwatch/build/reports/tests/index.html
-
-## Android instrumentation tests (in-emulator/device system tests)
-
-In Android Studio, right-click on `Stopwatch/src/instrumentTest/java/.../StopwatchActivityTest`,
-then choose `Run StopwatchActivityTest`
+* `View > Tool Windows > Build Variants`
+* `Test Artifact: Unit Tests`
+* right-click on `app/java/edu.luc.etl.cs313... (test)`, then choose `Run Tests in edu.luc.etl.cs313...`
 
 You can also use Gradle:
 
-    $ gradle connectedAndroidTest
+    $ ./gradlew testDebug
 
-## TODO
+You can view the resulting test reports in HTML by opening this file in your browser:
 
-* add external links to learning outcomes
-* add lifecycle methods, esp. save/restore app state
-* add Mockito
-* review wrt DIP following
-  [this post](http://lostechies.com/derickbailey/2011/09/22/dependency-injection-is-not-the-same-as-the-dependency-inversion-principle/)
-* add Gradle code coverage plugin
-* add Gradle dependency/stability metrics plugin
-* consider other useful Gradle code quality plugins (checkstyle etc.)
+    app/build/reports/tests/debug/index.html
+
+## Android instrumentation tests (in-emulator/device system tests)
+
+In Android Studio:
+
+* `View > Tool Windows > Build Variants`
+* `Test Artifact: Android Instrumentation Tests`
+* right-click on `app/java/edu...simplestopwatch (androidTest)`, then choose `Run Tests in edu...`
+
+You can also use Gradle:
+
+    $ ./gradlew connectedDebugAndroidTest
