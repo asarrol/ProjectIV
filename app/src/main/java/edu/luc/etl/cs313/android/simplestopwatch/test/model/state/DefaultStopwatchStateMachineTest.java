@@ -14,15 +14,15 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.state.DefaultStopwatchSta
  */
 public class DefaultStopwatchStateMachineTest extends AbstractStopwatchStateMachineTest {
 
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-		setModel(new DefaultStopwatchStateMachine(getDependency(), getDependency()));
-	}
+    @Before
+    public void setUp() throws Exception {
+        super.setUp();
+        setModel(new DefaultStopwatchStateMachine(getDependency(), getDependency()));
+    }
 
-	@After
-	public void tearDown() {
-		setModel(null);
-		super.tearDown();
-	}
+    @After
+    public void tearDown() {
+        setModel(null);
+        super.tearDown();
+    }
 }

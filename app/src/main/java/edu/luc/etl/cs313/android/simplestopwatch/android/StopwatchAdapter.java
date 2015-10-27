@@ -20,45 +20,45 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 
     private static String TAG = "stopwatch-android-activity";
 
-	/**
-	 * The state-based dynamic model.
-	 */
-	private StopwatchModelFacade model;
+    /**
+     * The state-based dynamic model.
+     */
+    private StopwatchModelFacade model;
 
-	protected void setModel(final StopwatchModelFacade model) {
-		this.model = model;
-	}
+    protected void setModel(final StopwatchModelFacade model) {
+        this.model = model;
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// inject dependency on view so this adapter receives UI events
-		setContentView(R.layout.activity_main);
-		// inject dependency on model into this so model receives UI events
-		this.setModel(new ConcreteStopwatchModelFacade());
-		// inject dependency on this into model to register for UI updates
-		model.setUIUpdateListener(this);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // inject dependency on view so this adapter receives UI events
+        setContentView(R.layout.activity_main);
+        // inject dependency on model into this so model receives UI events
+        this.setModel(new ConcreteStopwatchModelFacade());
+        // inject dependency on this into model to register for UI updates
+        model.setUIUpdateListener(this);
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
 
-	@Override
-	protected void onStart() {
-		super.onStart();
-		model.onStart();
-	}
+    @Override
+    protected void onStart() {
+        super.onStart();
+        model.onStart();
+    }
 
-	// TODO remaining lifecycle methods
+    // TODO remaining lifecycle methods
 
-	/**
-	 * Updates the seconds and minutes in the UI.
-	 * @param time
-	 */
-	public void updateTime(final int time) {
+    /**
+     * Updates the seconds and minutes in the UI.
+     * @param time
+     */
+    public void updateTime(final int time) {
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
             final TextView tvS = (TextView) findViewById(R.id.seconds);
@@ -68,26 +68,26 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
             tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
             tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
         });
-	}
+    }
 
-	/**
-	 * Updates the state name in the UI.
-	 * @param stateId
-	 */
-	public void updateState(final int stateId) {
+    /**
+     * Updates the state name in the UI.
+     * @param stateId
+     */
+    public void updateState(final int stateId) {
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
             final TextView stateName = (TextView) findViewById(R.id.stateName);
             stateName.setText(getString(stateId));
         });
-	}
+    }
 
-	// forward event listener methods to the model
-	public void onStartStop(final View view) {
+    // forward event listener methods to the model
+    public void onStartStop(final View view) {
         model.onStartStop();
     }
 
-	public void onLapReset(final View view)  {
+    public void onLapReset(final View view)  {
         model.onLapReset();
     }
 }
