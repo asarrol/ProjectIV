@@ -38,9 +38,7 @@ public abstract class AbstractStopwatchActivityTest {
      */
     @Test
     public void testActivityScenarioInit() throws Throwable {
-        getActivity().runOnUiThread(new Runnable() { @Override public void run() {
-            assertEquals(0, getDisplayedValue());
-        }});
+        getActivity().runOnUiThread(() -> assertEquals(0, getDisplayedValue()));
     }
 
 	/**
@@ -50,16 +48,16 @@ public abstract class AbstractStopwatchActivityTest {
 	 */
     @Test
 	public void testActivityScenarioRun() throws Throwable {
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(0, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
-		}});
+		});
 		Thread.sleep(5500); // <-- do not run this in the UI thread!
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
-		}});
+		});
 	}
 
 	/**
@@ -71,36 +69,34 @@ public abstract class AbstractStopwatchActivityTest {
 	 */
     @Test
 	public void testActivityScenarioRunLapReset() throws Throwable {
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(0, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
-		}});
+		});
 		Thread.sleep(5500); // <-- do not run this in the UI thread!
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
-		}});
+		});
 		Thread.sleep(4000); // <-- do not run this in the UI thread!
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getStartStopButton().performClick());
-		}});
+		});
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(5, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
-		}});
+		});
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
+		getActivity().runOnUiThread(() -> {
 			assertEquals(9, getDisplayedValue());
 			assertTrue(getResetLapButton().performClick());
-		}});
+		});
         runUiThreadTasks();
-		getActivity().runOnUiThread(new Runnable() { @Override public void run() {
-			assertEquals(0, getDisplayedValue());
-		}});
+		getActivity().runOnUiThread(() -> assertEquals(0, getDisplayedValue()));
 	}
 
 	// auxiliary methods for easy access to UI widgets

@@ -50,7 +50,7 @@ Android application.  The original java code can be found
     * System testing
     * Instrumentation testing
 * Mock-based testing
-* Testcase Superclass pattern
+* Testcase Superclass pattern (uses Template Method pattern)
 * Test coverage
 
 # Setting up the Environment
