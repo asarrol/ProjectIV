@@ -15,37 +15,37 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
  */
 public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 
-	private StopwatchStateMachine stateMachine;
+    private StopwatchStateMachine stateMachine;
 
     private ClockModel clockModel;
 
-	private TimeModel timeModel;
+    private TimeModel timeModel;
 
-	public ConcreteStopwatchModelFacade() {
-		timeModel = new DefaultTimeModel();
-		clockModel = new DefaultClockModel();
-		stateMachine = new DefaultStopwatchStateMachine(timeModel, clockModel);
-		clockModel.setOnTickListener(stateMachine);
-	}
-
-	@Override
-	public void onStart() {
-		stateMachine.actionInit();
-	}
-
-	@Override
-	public void setUIUpdateListener(final StopwatchUIUpdateListener listener) {
-		stateMachine.setUIUpdateListener(listener);
-	}
+    public ConcreteStopwatchModelFacade() {
+        timeModel = new DefaultTimeModel();
+        clockModel = new DefaultClockModel();
+        stateMachine = new DefaultStopwatchStateMachine(timeModel, clockModel);
+        clockModel.setOnTickListener(stateMachine);
+    }
 
     @Override
-	public void onStartStop() {
-		stateMachine.onStartStop();
-	}
+    public void onStart() {
+        stateMachine.actionInit();
+    }
 
-	@Override
-	public void onLapReset() {
-		stateMachine.onLapReset();
-	}
+    @Override
+    public void setUIUpdateListener(final StopwatchUIUpdateListener listener) {
+        stateMachine.setUIUpdateListener(listener);
+    }
+
+    @Override
+    public void onStartStop() {
+        stateMachine.onStartStop();
+    }
+
+    @Override
+    public void onLapReset() {
+        stateMachine.onLapReset();
+    }
 
 }
