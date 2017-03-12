@@ -1,5 +1,6 @@
 package edu.luc.etl.cs313.android.simplestopwatch.test.android;
 
+import edu.luc.etl.cs313.android.simplestopwatch.BuildConfig;
 import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
 
 import org.junit.Before;
@@ -36,6 +37,6 @@ public class StopwatchActivityRobolectric extends AbstractStopwatchActivityTest 
     @Override
     protected void runUiThreadTasks() {
         // Robolectric requires us to run the scheduled tasks explicitly!
-        Robolectric.runUiThreadTasks();
+        org.robolectric.shadows.ShadowLooper.runUiThreadTasks();
     }
 }
