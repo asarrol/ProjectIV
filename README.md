@@ -70,7 +70,7 @@ In Android Studio: `Run > Run app`
 
 In Android Studio:
 
-* Before running tests, in the *Android* view right-click on `app/java/edu.luc.etl.cs313... (test)` - if `Select ...` is one
+* Before running tests, in the *Android* view right-click on `edu.luc.etl.cs313...test (test)` - if `Select ...` is one
 * of the visible menu items about 2/3 of the way down, click on that; if `Select ...` is not there, go to the next step
 * Now click `Run > Edit Configurations...` and under `Android JUnit` click on `cs313 in app`
 * On the *Configuration* tab, click the far-right icon in the *Working Directory* row and select `MODULE_DIR`, then click `OK`
