@@ -70,13 +70,16 @@ In Android Studio: `Run > Run app`
 
 In Android Studio:
 
-* `View > Tool Windows > Build Variants`
-* `Test Artifact: Unit Tests`
-* right-click on `app/java/edu.luc.etl.cs313... (test)`, then choose `Run Tests in edu.luc.etl.cs313...`
+* Before running tests, in the *Android* view right-click on `app/java/edu.luc.etl.cs313... (test)` - if `Select ...` is one
+* of the visible menu items about 2/3 of the way down, click on that; if `Select ...` is not there, go to the next step
+* Now click `Run > Edit Configurations...` and under `Android JUnit` click on `cs313 in app`
+* On the *Configuration* tab, click the far-right icon in the *Working Directory* row and select `MODULE_DIR`, then click `OK`
+* *If you do not do this, running the unit tests from the Android view will not work!*
+* Finally, right-click on `edu.luc.etl.cs313...test (test)`, then choose `Run 'Tests in 'test''`
 
 You can also use Gradle:
 
-    $ ./gradlew testDebug
+    $ ./gradlew testDebug # leave out the "./" on the Windows command line
 
 You can view the resulting test reports in HTML by opening this file in your browser:
 
@@ -86,10 +89,8 @@ You can view the resulting test reports in HTML by opening this file in your bro
 
 In Android Studio:
 
-* `View > Tool Windows > Build Variants`
-* `Test Artifact: Android Instrumentation Tests`
-* right-click on `app/java/edu...simplestopwatch (androidTest)`, then choose `Run Tests in edu...`
+* In the *Android* view, right-click on `edu.luc.etl.cs313...android (androidTest)`, then choose `Run 'Tests in 'edu.luc.et...'`
 
 You can also use Gradle:
 
-    $ ./gradlew connectedDebugAndroidTest
+    $ ./gradlew connectedDebugAndroidTest # leave out "./" on the Windows command line
