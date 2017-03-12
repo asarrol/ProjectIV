@@ -1,27 +1,46 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'me.tatarka:gradle-retrolambda:3.2.2'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+        classpath 'gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.5'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'jacoco-android'
+apply plugin: 'com.github.kt3k.coveralls'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.github.sherter.google-java-format'
+
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled true
+    xml.enabled true
+}
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "edu.luc.etl.cs313.android.stopwatch"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -34,12 +53,30 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    sourceSets {
+        sourceSets {
+            final String sharedTestDir = 'src/main/java/test/android'
+            test {
+                java.srcDir sharedTestDir
+            }
+            androidTest {
+                java.srcDir sharedTestDir
+            }
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'junit:junit:4.12'
-    compile 'net.sourceforge.streamsupport:streamsupport:1.2.1'
-    testCompile 'org.robolectric:robolectric:2.4'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'net.sourceforge.streamsupport:streamsupport:1.5.2'
+    // several duplications on account of shared testcase superclass
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.android.support.test:rules:0.5'
+    testCompile 'org.robolectric:robolectric:3.3'
+    testCompile 'com.android.support:appcompat-v7:25.2.0'
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support:appcompat-v7:25.2.0'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test:runner:0.5'
 }
