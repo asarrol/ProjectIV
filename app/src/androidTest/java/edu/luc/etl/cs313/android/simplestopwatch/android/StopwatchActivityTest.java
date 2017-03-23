@@ -11,7 +11,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.test.android.AbstractStopwatchA
  * IMPORTANT: project must export JUnit 4 to make it available on the
  * device.
  *
- * @author laufer
+ * @author GROUP 2 PROJECT 4
  * @see http://developer.android.com/tools/testing/activity_testing.html
  */
 public class StopwatchActivityTest extends ActivityInstrumentationTestCase2<StopwatchAdapter> {
