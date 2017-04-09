@@ -22,11 +22,14 @@ class LapRunningState implements StopwatchState {
         sm.actionUpdateView();
     }
 
+
     @Override
     public void onTick() {
         sm.actionInc();
         sm.toLapRunningState();
+
     }
+
 
     @Override
     public void updateView() {

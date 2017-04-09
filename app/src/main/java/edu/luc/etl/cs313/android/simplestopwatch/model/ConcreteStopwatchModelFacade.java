@@ -38,6 +38,7 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
         stateMachine.setUIUpdateListener(listener);
     }
 
+    //eventually won't need
     @Override
     public void onStartStop() {
         stateMachine.onStartStop();
@@ -47,5 +48,9 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
     public void onLapReset() {
         stateMachine.onLapReset();
     }
+
+    //for later when button is fixed
+    //@Override
+    //public void onClick() {stateMachine.onClick(); }
 
 }

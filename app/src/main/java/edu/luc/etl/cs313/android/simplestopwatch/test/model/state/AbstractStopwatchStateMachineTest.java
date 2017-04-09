@@ -147,6 +147,8 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 
     private int runningTime = 0, lapTime = -1;
 
+    private int incrementTime = 0;
+
     private boolean started = false;
 
     public int getTime() {
@@ -210,4 +212,13 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
     public int getLaptime() {
         return lapTime;
     }
+
+    @Override
+    public void decIncrementTime() { incrementTime--; }
+
+    @Override
+    public int getIncrementTime() { return incrementTime; }
+
+    @Override
+    public void setIncrementTime() { incrementTime++; }
 }

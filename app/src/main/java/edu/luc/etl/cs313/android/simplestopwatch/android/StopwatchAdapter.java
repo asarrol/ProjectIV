@@ -33,10 +33,13 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // inject dependency on view so this adapter receives UI events
+
         setContentView(R.layout.activity_main);
         // inject dependency on model into this so model receives UI events
+
         this.setModel(new ConcreteStopwatchModelFacade());
         // inject dependency on this into model to register for UI updates
+
         model.setUIUpdateListener(this);
     }
 
@@ -54,10 +57,12 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 
     // TODO remaining lifecycle methods
 
+
     /**
      * Updates the seconds and minutes in the UI.
      * @param time
      */
+
     public void updateTime(final int time) {
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
@@ -74,6 +79,7 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
      * Updates the state name in the UI.
      * @param stateId
      */
+
     public void updateState(final int stateId) {
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
@@ -83,10 +89,13 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
     }
 
     // forward event listener methods to the model
+
+    //I am changing onStartStop to have our functionality for now
     public void onStartStop(final View view) {
         model.onStartStop();
     }
 
+    //eventually won't need onLapReset this is a method for the reset button
     public void onLapReset(final View view)  {
         model.onLapReset();
     }

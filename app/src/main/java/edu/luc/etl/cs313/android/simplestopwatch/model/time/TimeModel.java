@@ -12,4 +12,9 @@ public interface TimeModel {
     int getRuntime();
     void setLaptime();
     int getLaptime();
+
+//for ours
+    void setIncrementTime();
+    int getIncrementTime();
+    void decIncrementTime();
 }

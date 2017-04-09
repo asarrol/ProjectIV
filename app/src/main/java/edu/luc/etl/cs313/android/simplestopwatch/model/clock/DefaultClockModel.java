@@ -33,6 +33,8 @@ public class DefaultClockModel implements ClockModel {
             }
         }, /*initial delay*/ 1000, /*periodic delay*/ 1000);
     }
+    //notice initial delay maybe we can set the 3 sec delay here? periodic is okay
+    //may be okay if we redefine what happens in the onTick method to decrement instead
 
     @Override
     public void stop() {

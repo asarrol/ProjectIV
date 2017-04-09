@@ -12,10 +12,11 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        sm.actionStart();
-        sm.toRunningState();
+        sm.actionStart(); //starts timer and therefore tick events.
+        sm.toIncrementState(); //sends to increment state
     }
 
+    //ignoring for the moment
     @Override
     public void onLapReset() {
         sm.actionReset();
@@ -29,7 +30,7 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void updateView() {
-        sm.updateUIRuntime();
+        sm.updateUILaptime();
     }
 
     @Override

@@ -21,6 +21,7 @@ import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER
  * TODO move this and the other tests to src/test once Android Studio supports
  * non-instrumentation unit tests properly.
  */
+
 public abstract class AbstractStopwatchActivityTest {
 
     /**
@@ -59,6 +60,20 @@ public abstract class AbstractStopwatchActivityTest {
             assertTrue(getStartStopButton().performClick());
         });
     }
+    //verifies time is 1 minute, press start, wait 1 min expect time 0
+    //@Test
+    //public void testActivityScenarioRun() throws Throwable {
+    //    getActivity().runOnUiThread(() -> {
+    //        assertEquals(1, getDisplayedValue());
+    //        assertTrue(getButton().performClick());
+    //    });
+    //    Thread.sleep(1000);
+    //    runUiThreadTasks();
+    //    getActivity().runOnUiThread(() -> {
+    //        assertEquals(0,getDisplayedValue());
+    //        assertTrue(getButton().performClick());
+    //    });
+    //}
 
     /**
      * Verifies the following scenario: time is 0, press start, wait 5+ seconds,
@@ -120,6 +135,9 @@ public abstract class AbstractStopwatchActivityTest {
     protected Button getResetLapButton() {
         return (Button) getActivity().findViewById(R.id.resetLap);
     }
+
+    //protected Button getButton() { return (Button) getActivity()
+            //this is where we can set the button to use I think...
 
     /**
      * Explicitly runs tasks scheduled to run on the UI thread in case this is required

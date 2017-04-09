@@ -45,7 +45,8 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public synchronized void onTick()      { state.onTick(); }
 
     @Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
-    @Override public void updateUILaptime() { uiUpdateListener.updateTime(timeModel.getLaptime()); }
+    @Override public void updateUILaptime() { uiUpdateListener.updateTime(timeModel.getIncrementTime()); }
+    //I changed this to show increment time
 
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
@@ -53,11 +54,19 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     private final StopwatchState LAP_RUNNING = new LapRunningState(this);
     private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
+    //our known states
+    private final StopwatchState ALARMING = new AlarmingState(this);
+    private final StopwatchState INCREMENTING = new IncrementState(this);
+
     // transitions
     @Override public void toRunningState()    { setState(RUNNING); }
     @Override public void toStoppedState()    { setState(STOPPED); }
     @Override public void toLapRunningState() { setState(LAP_RUNNING); }
     @Override public void toLapStoppedState() { setState(LAP_STOPPED); }
+
+    //our transitions
+    @Override public void toAlarmingState() { setState(ALARMING); }
+    @Override public void toIncrementState() { setState(INCREMENTING);}
 
     // actions
     @Override public void actionInit()       { toStoppedState(); actionReset(); }
@@ -67,4 +76,11 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
+
+
+    //our actions
+    @Override public void actionDec() { timeModel.decIncrementTime(); actionUpdateView(); }
+    @Override public void actionIncTime() { timeModel.setIncrementTime(); actionUpdateView(); }
+    @Override public int actionGetTime () { return timeModel.getRuntime(); }
+    @Override public int actionGetIncTime() { return timeModel.getIncrementTime(); }
 }

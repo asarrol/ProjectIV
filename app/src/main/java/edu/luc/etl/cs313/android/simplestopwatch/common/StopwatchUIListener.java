@@ -8,4 +8,8 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
 public interface StopwatchUIListener {
     void onStartStop();
     void onLapReset();
+
+    //using onStartStop for our functionality for now
+    //for later
+    //void onClick();
 }
