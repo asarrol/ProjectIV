@@ -65,20 +65,16 @@
         android:layout_below="@id/timer"
         android:layout_centerHorizontal="true" >
 
-        <Button
-            android:id="@+id/startStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onStartStop"
-            android:text="@string/startStop" />
-
-        <Button
-            android:id="@+id/resetLap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/startStop"
-            android:onClick="onLapReset"
-            android:text="@string/resetLap" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/startStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:onClick="onStartStop"
+        android:text="Button" />
 
 </RelativeLayout>

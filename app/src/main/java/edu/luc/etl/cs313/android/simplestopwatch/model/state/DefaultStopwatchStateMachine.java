@@ -41,10 +41,10 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // these must be synchronized because events can come from the
     // UI thread or the timer thread
     @Override public synchronized void onStartStop() { state.onStartStop(); }
-    @Override public synchronized void onLapReset()  { state.onLapReset(); }
+    //@Override public synchronized void onLapReset()  { state.onLapReset(); }
     @Override public synchronized void onTick()      { state.onTick(); }
 
-    @Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
+    //@Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
     @Override public void updateUILaptime() { uiUpdateListener.updateTime(timeModel.getIncrementTime()); }
     //I changed this to show increment time
 
@@ -73,7 +73,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
     @Override public void actionStart()      { clockModel.start(); }
     @Override public void actionStop()       { clockModel.stop(); }
-    @Override public void actionLap()        { timeModel.setLaptime(); }
+    //@Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
 

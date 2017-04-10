@@ -28,11 +28,11 @@ public class IncrementState implements StopwatchState {
     }
 
     //sort of ignoring for now
-    @Override
-    public void onLapReset() {
-        sm.toRunningState();
-        sm.actionUpdateView();
-    }
+    //@Override
+    //public void onLapReset() {
+    //    sm.toRunningState();
+    //    sm.actionUpdateView();
+    //}
 
     @Override
     public void onTick() {

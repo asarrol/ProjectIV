@@ -96,7 +96,7 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
     }
 
     //eventually won't need onLapReset this is a method for the reset button
-    public void onLapReset(final View view)  {
-        model.onLapReset();
-    }
+    //public void onLapReset(final View view)  {
+    //    model.onLapReset();
+    //}
 }

@@ -23,7 +23,8 @@ interface StopwatchSMStateView {
     void actionReset();
     void actionStart();
     void actionStop();
-    void actionLap();
+    //eventually won't need below since we don't lap
+    //void actionLap();
     void actionInc();
     void actionUpdateView();
     void actionDec();
@@ -32,6 +33,7 @@ interface StopwatchSMStateView {
     int actionGetIncTime();
 
     // state-dependent UI updates
-    void updateUIRuntime();
+    //void updateUIRuntime();
+    //I used Laptime for the display time
     void updateUILaptime();
 }

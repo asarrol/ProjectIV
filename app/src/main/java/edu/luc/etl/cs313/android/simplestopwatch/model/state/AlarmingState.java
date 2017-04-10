@@ -24,11 +24,11 @@ public class AlarmingState implements StopwatchState {
     }
 
     //ignoring for now
-    @Override
-    public void onLapReset() {
-        sm.toRunningState();
-        sm.actionUpdateView();
-    }
+   // @Override
+    //public void onLapReset() {
+    //    sm.toRunningState();
+    //    sm.actionUpdateView();
+    //}
 
 
     //don't change state onTick. Stays indefinitely until button clicked

@@ -87,6 +87,7 @@ public abstract class AbstractStopwatchStateMachineTest {
      *
      * @throws Throwable
      */
+    /*
     @Test
     public void testScenarioRunLapReset() {
         assertTimeEquals(0);
@@ -114,6 +115,7 @@ public abstract class AbstractStopwatchStateMachineTest {
         assertFalse(dependency.isStarted());
         assertTimeEquals(0);
     }
+    */
 
     /**
      * Sends the given number of tick events to the model.
