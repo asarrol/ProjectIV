@@ -26,6 +26,7 @@ public abstract class AbstractStopwatchActivityTest {
 
     /**
      * Verifies that the activity under test can be launched.
+     *
      */
     @Test
     public void testActivityCheckTestCaseSetUpProperly() {

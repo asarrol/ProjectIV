@@ -1,0 +1,10 @@
+
+GROUP 2 REPORT 
+MANU NAIR, BRYAN HETZEL, SARAH ANDERSON, BOYAN KUKOV, PAUL MONTEGRANDE, ANDRE SARROL
+
+
+The journey to achieving our counter program was a wild one. The state diagram and theoretical understanding we came to, in class, wasn’t too difficult to grasp. Our state diagram was slightly off, from our preliminary work in class prior to working with the source code, but we didn’t have too hard of a time visualizing the State driven program. The importance of modeling first really shone through, visualizing the transitions from stopped, to incrementing, to running, to alarming, and back to stopped was critical to understand before trying to mess with all of the Stopwatch code that would need to be modified. 
+The biggest issues, we’d say, stemmed from the blend of necessary and unnecessary StopWatch components, and the variety of folders, classes, interfaces and incorporations. There were tons of folders that we had to peruse in order to really glean what was necessary versus what was extraneous. At times, we even considered starting from scratch instead of working with all the excessive stopwatch folders.
+The state driven programming/state dependance was fun to tackle, and we used the skeleton of the StopWatch program to further our understanding of the state injection. Even in our tests, which were difficult to incorporate, the importance in evaluating states was apparent. The test we had to test if 3 seconds had passed before switching to the running state incorporated getting the state ID. 
+Beyond that, and the hurdle of editing the xml interface to reflect the change from a stopwatch to a counter, the other big hurdle was the alarm. In AlarmingState, learning about using the ToneGenerator package from android in particular, was difficult. Initially, at first, we tried using the MediaPlayer package, which failed to work due to a difference between context and activity, which we couldn’t reconcile, sparking the shift to ToneGenerator.
+

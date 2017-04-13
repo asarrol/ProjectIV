@@ -1,0 +1,10 @@
+edu.luc.etl.cs313.android.simplestopwatch.android
+edu.luc.etl.cs313.android.simplestopwatch.common
+edu.luc.etl.cs313.android.simplestopwatch.model
+edu.luc.etl.cs313.android.simplestopwatch.model.clock
+edu.luc.etl.cs313.android.simplestopwatch.model.state
+edu.luc.etl.cs313.android.simplestopwatch.model.time
+edu.luc.etl.cs313.android.simplestopwatch.test.android
+edu.luc.etl.cs313.android.simplestopwatch.test.model.clock
+edu.luc.etl.cs313.android.simplestopwatch.test.model.state
+edu.luc.etl.cs313.android.simplestopwatch.test.model.time
