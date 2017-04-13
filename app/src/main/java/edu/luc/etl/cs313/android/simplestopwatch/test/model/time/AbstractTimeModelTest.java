@@ -71,12 +71,10 @@ public abstract class AbstractTimeModelTest {
      */
     @Test
     public void testInctime() {
-        final int rt = model.getRuntime();
-        final int it = model.getIncrementTime();
-        model.setIncrementTime();
-        for (int i = 0; i < 100; i ++) {
+        for (int i = 0; i < 150; i ++) {
             model.setIncrementTime(); //try to set above 99 seconds
         }
-        assertEquals(1, it);
+        final int it = model.getIncrementTime();
+        assertEquals(99, it);
     }
 }
