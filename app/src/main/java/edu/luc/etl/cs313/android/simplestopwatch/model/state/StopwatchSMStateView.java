@@ -14,17 +14,11 @@ interface StopwatchSMStateView {
     void toAlarmingState();
     void toIncrementState();
 
-    //eventually won't need
-    void toLapRunningState();
-    void toLapStoppedState();
-
     // actions
     void actionInit();
     void actionReset();
     void actionStart();
     void actionStop();
-    //eventually won't need below since we don't lap
-    //void actionLap();
     void actionInc();
     void actionUpdateView();
     void actionDec();

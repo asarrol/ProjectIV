@@ -41,7 +41,4 @@ public class StopwatchActivityTest extends ActivityInstrumentationTestCase2<Stop
         actualTest.testActivityScenarioRun();
     }
 
-    public void testActivityScenarioRunLapReset() throws Throwable {
-        actualTest.testActivityScenarioRunLapReset();
-    }
 }

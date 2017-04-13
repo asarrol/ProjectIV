@@ -60,30 +60,23 @@ public abstract class AbstractTimeModelTest {
         final int rt = model.getRuntime();
         final int lt = model.getLaptime();
         for (int i = 0; i < SEC_PER_HOUR; i ++) {
-            model.incRuntime();
+            model.setIncrementTime();
         }
         assertEquals(rt, model.getRuntime());
         assertEquals(lt, model.getLaptime());
     }
 
     /**
-     * Verifies that laptime works correctly.
+     * Verifies that increment time works correctly.
      */
     @Test
-    public void testLaptime() {
+    public void testInctime() {
         final int rt = model.getRuntime();
-        final int lt = model.getLaptime();
-        for (int i = 0; i < 5; i ++) {
-            model.incRuntime();
+        final int it = model.getIncrementTime();
+        model.setIncrementTime();
+        for (int i = 0; i < 100; i ++) {
+            model.setIncrementTime(); //try to set above 99 seconds
         }
-        assertEquals(rt + 5, model.getRuntime());
-        assertEquals(lt, model.getLaptime());
-        model.setLaptime();
-        assertEquals(rt + 5, model.getLaptime());
-        for (int i = 0; i < 5; i ++) {
-            model.incRuntime();
-        }
-        assertEquals(rt + 10, model.getRuntime());
-        assertEquals(rt + 5, model.getLaptime());
+        assertEquals(1, it);
     }
 }

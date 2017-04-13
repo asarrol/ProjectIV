@@ -73,7 +73,7 @@ dependencies {
     // several duplications on account of shared testcase superclass
     testCompile 'junit:junit:4.12'
     testCompile 'com.android.support.test:rules:0.5'
-    testCompile 'org.robolectric:robolectric:3.3'
+    testCompile 'org.robolectric:robolectric:3.3.2'
     testCompile 'com.android.support:appcompat-v7:25.3.1'
     androidTestCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support:appcompat-v7:25.3.1'

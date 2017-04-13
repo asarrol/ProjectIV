@@ -23,7 +23,9 @@ public class IncrementState implements StopwatchState {
     public void onStartStop() {
         temp = sm.actionGetTime(); //take note of runtime when clicked
         sm.actionIncTime(); //when clicked, increase increment time by one min
-        sm.actionUpdateView(); //update time on screen to reflect current increment time
+        if(sm.actionGetIncTime() < 100 ) {
+            sm.actionUpdateView(); //update time on screen to reflect current increment time
+        }
         sm.toIncrementState(); //when clicked send back to self in increment state
     }
 

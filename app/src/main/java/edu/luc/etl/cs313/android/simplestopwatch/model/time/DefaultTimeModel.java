@@ -9,7 +9,7 @@ public class DefaultTimeModel implements TimeModel {
 
     private int runningTime = 0;
 
-    private int lapTime = -1;
+    private int lapTime = 0;
 
     private int incrementTime = 0;
 
@@ -21,18 +21,12 @@ public class DefaultTimeModel implements TimeModel {
 
     @Override
     public void incRuntime() {
-        runningTime = (runningTime + SEC_PER_TICK) % SEC_PER_HOUR;
+        runningTime = (runningTime + SEC_PER_TICK) % SEC_PER_MIN;
     }
 
     @Override
     public int getRuntime() {
         return runningTime;
-    }
-
-    //eventually won't need
-    @Override
-    public void setLaptime() {
-        lapTime = runningTime;
     }
 
     @Override
@@ -46,8 +40,9 @@ public class DefaultTimeModel implements TimeModel {
     @Override
     public void setIncrementTime() {
         if (incrementTime < 99) { //make sure doesn't break program if try to increment above 99
-            incrementTime = incrementTime + SEC_PER_TICK;
+            incrementTime = incrementTime + 1;
         }
+        else {incrementTime = 99;}
     }
 
     //returns incrementTime
@@ -56,5 +51,5 @@ public class DefaultTimeModel implements TimeModel {
 
     //decreases increment time by seconds per tick event, currently set to run 1000ms
     @Override
-    public void decIncrementTime() { incrementTime = (incrementTime - SEC_PER_TICK) % SEC_PER_HOUR; }
+    public void decIncrementTime() { incrementTime = (incrementTime - SEC_PER_TICK) % SEC_PER_MIN; }
 }

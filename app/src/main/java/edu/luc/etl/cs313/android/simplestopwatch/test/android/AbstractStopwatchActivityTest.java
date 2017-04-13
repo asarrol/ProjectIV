@@ -48,32 +48,41 @@ public abstract class AbstractStopwatchActivityTest {
      * @throws Throwable
      */
     @Test
-    public void testActivityScenarioRun() throws Throwable {
+    public void testActivityScenario() throws Throwable {
         getActivity().runOnUiThread(() -> {
             assertEquals(0, getDisplayedValue());
             assertTrue(getStartStopButton().performClick());
+            //click a total of 5 times
+            for (int i = 0; i < 5; i++) {
+                getStartStopButton().performClick();
+            }
         });
-        Thread.sleep(5500); // <-- do not run this in the UI thread!
+        //rest 3 seconds
+        Thread.sleep(3500); // <-- do not run this in the UI thread!
         runUiThreadTasks();
         getActivity().runOnUiThread(() -> {
             assertEquals(5, getDisplayedValue());
             assertTrue(getStartStopButton().performClick());
         });
     }
-    //verifies time is 1 minute, press start, wait 1 min expect time 0
-    //@Test
-    //public void testActivityScenarioRun() throws Throwable {
-    //    getActivity().runOnUiThread(() -> {
-    //        assertEquals(1, getDisplayedValue());
-    //        assertTrue(getButton().performClick());
-    //    });
-    //    Thread.sleep(1000);
-    //    runUiThreadTasks();
-    //    getActivity().runOnUiThread(() -> {
-    //        assertEquals(0,getDisplayedValue());
-    //        assertTrue(getButton().performClick());
-    //    });
-    //}
+
+    //verifies time to start is 5 seconds, press start, increment to 5 seconds
+    //wait three seconds, verify running state
+    @Test
+    public void testActivityScenarioRun() throws Throwable {
+        getActivity().runOnUiThread(() -> {
+            assertEquals(0, getDisplayedValue()); //before beginning check start at 0
+            assertTrue(getStartStopButton().performClick()); //verify button working and move to incrementstate
+            for (int i = 1; i < 6; i++) {
+                getStartStopButton().performClick(); //set 5 seconds on timer
+            }
+        });
+        Thread.sleep(3500); //three second pause before moving to runningstate
+        runUiThreadTasks();
+        getActivity().runOnUiThread(() -> {
+            assertEquals("Running", getState()); //check that we've moved to running state
+        });
+    }
 
     /**
      * Verifies the following scenario: time is 0, press start, wait 5+ seconds,
@@ -82,6 +91,7 @@ public abstract class AbstractStopwatchActivityTest {
      *
      * @throws Throwable
      */
+    /*
     @Test
     public void testActivityScenarioRunLapReset() throws Throwable {
         getActivity().runOnUiThread(() -> {
@@ -113,7 +123,7 @@ public abstract class AbstractStopwatchActivityTest {
         runUiThreadTasks();
         getActivity().runOnUiThread(() -> assertEquals(0, getDisplayedValue()));
     }
-
+    */
     // auxiliary methods for easy access to UI widgets
 
     protected abstract StopwatchAdapter getActivity();
@@ -124,18 +134,17 @@ public abstract class AbstractStopwatchActivityTest {
 
     protected int getDisplayedValue() {
         final TextView ts = (TextView) getActivity().findViewById(R.id.seconds);
-        final TextView tm = (TextView) getActivity().findViewById(R.id.minutes);
-        return SEC_PER_MIN * tvToInt(tm) + tvToInt(ts);
+        return tvToInt(ts);
     }
 
     protected Button getStartStopButton() {
         return (Button) getActivity().findViewById(R.id.startStop);
     }
 
-    //protected Button getResetLapButton() {
-    //    return (Button) getActivity().findViewById(R.id.resetLap);
-    //}
-
+    protected String getState(){
+        final TextView state = (TextView) getActivity().findViewById(R.id.stateName);
+        return state.getText().toString().trim();
+    }
     /**
      * Explicitly runs tasks scheduled to run on the UI thread in case this is required
      * by the testing framework, e.g., Robolectric.

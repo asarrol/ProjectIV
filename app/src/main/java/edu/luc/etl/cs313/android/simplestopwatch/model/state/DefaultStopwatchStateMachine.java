@@ -1,5 +1,13 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
+
+import java.io.IOException;
+
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
@@ -19,6 +27,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     private final TimeModel timeModel;
 
     private final ClockModel clockModel;
+
 
     /**
      * The internal state of this adapter component. Required for the State pattern.
@@ -51,19 +60,12 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
     private final StopwatchState RUNNING     = new RunningState(this);
-    private final StopwatchState LAP_RUNNING = new LapRunningState(this);
-    private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
-
     //our known states
     private final StopwatchState ALARMING = new AlarmingState(this);
     private final StopwatchState INCREMENTING = new IncrementState(this);
-
     // transitions
     @Override public void toRunningState()    { setState(RUNNING); }
     @Override public void toStoppedState()    { setState(STOPPED); }
-    @Override public void toLapRunningState() { setState(LAP_RUNNING); }
-    @Override public void toLapStoppedState() { setState(LAP_STOPPED); }
-
     //our transitions
     @Override public void toAlarmingState() { setState(ALARMING); }
     @Override public void toIncrementState() { setState(INCREMENTING);}
@@ -73,10 +75,8 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
     @Override public void actionStart()      { clockModel.start(); }
     @Override public void actionStop()       { clockModel.stop(); }
-    //@Override public void actionLap()        { timeModel.setLaptime(); }
     @Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
     @Override public void actionUpdateView() { state.updateView(); }
-
 
     //our actions
     @Override public void actionDec() { timeModel.decIncrementTime(); actionUpdateView(); }
